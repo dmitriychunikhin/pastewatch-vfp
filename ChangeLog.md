@@ -1,5 +1,5 @@
 0.0.3
-  - Fix: SET LIBRARY TO ...\pastewatch.fll was replaced to SET LIBRARY TO ...\pastewatch.fll <b>ADDITIVED</b>
+  - Fix: SET LIBRARY TO ...\pastewatch.fll was replaced to SET LIBRARY TO ...\pastewatch.fll <b>ADDITIVE</b>
 
 0.0.2
   - Command KEYBOARD {Ctrl+V} in internal On_KEYLABEL_PASTE event was substituted by direct assignment of a control's SelText property. This prevents double firing of OnPaste event when _MEDIT submenu presents in system menu
