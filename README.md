@@ -3,7 +3,7 @@
 [![ChangleLog](https://img.shields.io/github/last-commit/dmitriychunikhin/pastewatch-vfp?path=%2FChangeLog.md&label=ChangeLog)](ChangeLog.md)
 
 Adds paste handling ability to any VFP 9 control by watching
-* menu bar selection if it is defined as _med_paste
+* menu bar selection if it is defined as _med_paste (by VFP API menuHitEvent handling)
 * Ctrl+V keyboard shortcut (via ON KEY LABEL)
 
 To handle paste event a control must implement OnPaste method<br>
@@ -19,8 +19,8 @@ To handle paste event a control must implement OnPaste method<br>
 * Initialization (put this in startup code of your app)
 DO pastewatch.app WITH .T. 
 ...
-* Releasing (put this in cleanup code of your app)
-DO pastewatch.app WITH .F. &&Release
+* Release (put this in cleanup code of your app)
+DO pastewatch.app WITH .F.
 ```
 
 ```

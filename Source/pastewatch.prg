@@ -22,7 +22,7 @@ DEFINE CLASS PasteWatch as Session
         m.lcAppPath = STREXTRACT(SYS(16), " ", "", 2, 2)
         m.lcAppFolder = JUSTPATH(m.lcAppPath)
         
-        SET LIBRARY TO &lcAppFolder\pastewatch.fll
+        SET LIBRARY TO &lcAppFolder\pastewatch.fll ADDITIVE
         BINDEVENT(0, WM_USER_PASTE, This, "On_WM_USER_PASTE")
         ADDPROPERTY(_VFP, This.Class, This)
         

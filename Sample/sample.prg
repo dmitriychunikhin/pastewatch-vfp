@@ -5,7 +5,7 @@ SET NOTIFY CURSOR OFF
 SET SAFETY OFF
 
 SET SYSMENU TO DEFAULT
-DO sample.mpr
+* DO sample.mpr && custom menu
 
 
 SET PROCEDURE TO 
