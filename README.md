@@ -1,6 +1,6 @@
 # pastewatch
 
-0.0.1<br>
+[![ChangleLog](https://img.shields.io/github/last-commit/dmitriychunikhin/pastewatch-vfp?path=%2FChangeLog.md&label=ChangeLog)](ChangeLog.md)
 Adds paste handling ability to any VFP 9 control by watching
 * menu bar selection if it is defined as _med_paste
 * Ctrl+V keyboard shortcut (via ON KEY LABEL)
