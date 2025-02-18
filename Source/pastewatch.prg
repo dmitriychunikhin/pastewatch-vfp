@@ -53,17 +53,16 @@ DEFINE CLASS PasteWatch as Session
     PROCEDURE On_WM_USER_PASTE
         LPARAMETERS hWnd, nMsg, wParam, lParam
         
-        RETURN IIF(This.OnPaste(), 1, 0)
+        RETURN IIF(This.OnPaste(), 0, 1)
     ENDPROC
 
     PROCEDURE On_KEYLABEL_PASTE
-        IF This.OnPaste() = .F.
-            RETURN
-        ENDIF
-        KEYBOARD '{CTRL+V}' PLAIN
+        This.OnPaste(.T.)
     ENDPROC
 
     HIDDEN PROCEDURE OnPaste
+        LPARAMETERS llOnKeyLabel
+        
         IF TYPE("_VFP.ActiveForm.ActiveControl") != "O"
             RETURN
         ENDIF
@@ -98,11 +97,14 @@ DEFINE CLASS PasteWatch as Session
             ENDIF
         ENDIF
         
-        IF PEMSTATUS(m.loControl, "OnPaste", 5) = .F.
-            RETURN
+        IF PEMSTATUS(m.loControl, "OnPaste", 5) = .T.
+            IF m.loControl.OnPaste() = .F.
+                RETURN .F.
+            ENDIF
         ENDIF
-        IF m.loControl.OnPaste() = .F.
-            RETURN .F.
+        
+        IF m.llOnKeyLabel AND PEMSTATUS(m.loControl, "SelText",6) AND NOT EMPTY(_CLIPTEXT)
+            m.loControl.SelText = _CLIPTEXT
         ENDIF
     ENDPROC
     

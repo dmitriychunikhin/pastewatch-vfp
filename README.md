@@ -15,7 +15,21 @@ To handle paste event a control must implement OnPaste method<br>
 
 ## Usage
 ```
-DO pastewatch.app WITH .T. &&Initialization
+* Initialization (put this in startup code of your app)
+DO pastewatch.app WITH .T. 
 ...
+* Releasing (put this in cleanup code of your app)
 DO pastewatch.app WITH .F. &&Release
+```
+
+```
+* OnPaste event implementation sample
+DEFINE CLASS MyTextbox as Textbox
+    PROCEDURE OnPaste
+        IF MESSAGEBOX("Do you want to paste text in this textbox?", 4+32, "OnPaste") = 7
+            * returning .F. prevents pasting text into control
+            RETURN .F.
+        ENDIF
+    ENDPROC
+ENDDEFINE
 ```

@@ -11,7 +11,7 @@ long FAR EventHandler(WHandle theWindow, EventRec FAR* ev)
 			WM_USER + WM_PASTE, 
 			0, 
 			0);
-		return res == 1 ? NO : YES;
+		return res == 0 ? NO : YES;
 	}
 	return NO;   // event still needs to be handled by Visual FoxPro
 }
