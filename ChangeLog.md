@@ -1,3 +1,6 @@
+0.1
+  - Added handling of copy/cut events
+
 0.0.3
   - Fix: SET LIBRARY TO ...\pastewatch.fll was replaced to SET LIBRARY TO ...\pastewatch.fll <b>ADDITIVE</b>
 

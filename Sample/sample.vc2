@@ -9,6 +9,8 @@ DEFINE CLASS sample_textbox AS textbox
 
 	*<DefinedPropArrayMethod>
 		*m: context_menu
+		*m: oncopy
+		*m: oncut
 		*m: onpaste
 	*</DefinedPropArrayMethod>
 
@@ -36,6 +38,12 @@ DEFINE CLASS sample_textbox AS textbox
 		
 		RETURN '_context_menu'
 		
+	ENDPROC
+
+	PROCEDURE oncopy
+	ENDPROC
+
+	PROCEDURE oncut
 	ENDPROC
 
 	PROCEDURE onpaste

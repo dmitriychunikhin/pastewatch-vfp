@@ -29,6 +29,18 @@ DEFINE CLASS sample AS form
 	*< OBJECTDATA: ObjPath="Label1" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Label2" UniqueID="" Timestamp="" />
 	*< OBJECTDATA: ObjPath="Label3" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Sample_textbox3" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Sample_textbox4" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Text2" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Label4" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Label5" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Label6" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Sample_textbox5" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Sample_textbox6" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Text3" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Label7" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Label8" UniqueID="" Timestamp="" />
+	*< OBJECTDATA: ObjPath="Label9" UniqueID="" Timestamp="" />
 
 	*<PropValue>
 		Caption = "Sample"
@@ -39,7 +51,7 @@ DEFINE CLASS sample AS form
 		ShowWindow = 0
 		Top = 0
 		Visible = .T.
-		Width = 614
+		Width = 915
 		WindowState = 0
 		WindowType = 0
 	*</PropValue>
@@ -48,8 +60,9 @@ DEFINE CLASS sample AS form
 		Height = 200, ;
 		Left = 12, ;
 		Name = "Grid1", ;
+		TabIndex = 10, ;
 		Top = 144, ;
-		Width = 588
+		Width = 876
 		*< END OBJECT: BaseClass="grid" />
 
 	ADD OBJECT 'Label1' AS label WITH ;
@@ -58,6 +71,7 @@ DEFINE CLASS sample AS form
 		Height = 17, ;
 		Left = 24, ;
 		Name = "Label1", ;
+		TabIndex = 11, ;
 		Top = 29, ;
 		Width = 64
 		*< END OBJECT: BaseClass="label" />
@@ -68,6 +82,7 @@ DEFINE CLASS sample AS form
 		Height = 17, ;
 		Left = 24, ;
 		Name = "Label2", ;
+		TabIndex = 12, ;
 		Top = 60, ;
 		Width = 64
 		*< END OBJECT: BaseClass="label" />
@@ -78,6 +93,73 @@ DEFINE CLASS sample AS form
 		Height = 17, ;
 		Left = 24, ;
 		Name = "Label3", ;
+		TabIndex = 13, ;
+		Top = 96, ;
+		Width = 64
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'Label4' AS label WITH ;
+		BackStyle = 0, ;
+		Caption = "OnCopy", ;
+		Height = 17, ;
+		Left = 324, ;
+		Name = "Label4", ;
+		TabIndex = 14, ;
+		Top = 29, ;
+		Width = 64
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'Label5' AS label WITH ;
+		BackStyle = 0, ;
+		Caption = "NoCopy", ;
+		Height = 17, ;
+		Left = 324, ;
+		Name = "Label5", ;
+		TabIndex = 15, ;
+		Top = 60, ;
+		Width = 64
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'Label6' AS label WITH ;
+		BackStyle = 0, ;
+		Caption = "Default", ;
+		Height = 17, ;
+		Left = 324, ;
+		Name = "Label6", ;
+		TabIndex = 16, ;
+		Top = 96, ;
+		Width = 64
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'Label7' AS label WITH ;
+		BackStyle = 0, ;
+		Caption = "OnCut", ;
+		Height = 17, ;
+		Left = 624, ;
+		Name = "Label7", ;
+		TabIndex = 17, ;
+		Top = 29, ;
+		Width = 64
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'Label8' AS label WITH ;
+		BackStyle = 0, ;
+		Caption = "NoCut", ;
+		Height = 17, ;
+		Left = 624, ;
+		Name = "Label8", ;
+		TabIndex = 18, ;
+		Top = 60, ;
+		Width = 64
+		*< END OBJECT: BaseClass="label" />
+
+	ADD OBJECT 'Label9' AS label WITH ;
+		BackStyle = 0, ;
+		Caption = "Default", ;
+		Height = 17, ;
+		Left = 624, ;
+		Name = "Label9", ;
+		TabIndex = 19, ;
 		Top = 96, ;
 		Width = 64
 		*< END OBJECT: BaseClass="label" />
@@ -86,24 +168,87 @@ DEFINE CLASS sample AS form
 		Height = 23, ;
 		Left = 96, ;
 		Name = "Sample_textbox1", ;
+		TabIndex = 1, ;
 		Top = 24, ;
-		Width = 232
+		Width = 196
 		*< END OBJECT: ClassLib="sample.vcx" BaseClass="textbox" />
 
 	ADD OBJECT 'Sample_textbox2' AS sample_textbox WITH ;
 		Height = 23, ;
 		Left = 96, ;
 		Name = "Sample_textbox2", ;
+		TabIndex = 2, ;
 		Top = 60, ;
-		Width = 232
+		Width = 196
+		*< END OBJECT: ClassLib="sample.vcx" BaseClass="textbox" />
+
+	ADD OBJECT 'Sample_textbox3' AS sample_textbox WITH ;
+		Height = 23, ;
+		Left = 396, ;
+		Name = "Sample_textbox3", ;
+		TabIndex = 4, ;
+		Top = 24, ;
+		Value = Sample data 12345, ;
+		Width = 196
+		*< END OBJECT: ClassLib="sample.vcx" BaseClass="textbox" />
+
+	ADD OBJECT 'Sample_textbox4' AS sample_textbox WITH ;
+		Height = 23, ;
+		Left = 396, ;
+		Name = "Sample_textbox4", ;
+		TabIndex = 5, ;
+		Top = 60, ;
+		Value = Sample data 12345, ;
+		Width = 196
+		*< END OBJECT: ClassLib="sample.vcx" BaseClass="textbox" />
+
+	ADD OBJECT 'Sample_textbox5' AS sample_textbox WITH ;
+		Height = 23, ;
+		Left = 696, ;
+		Name = "Sample_textbox5", ;
+		TabIndex = 7, ;
+		Top = 24, ;
+		Value = Sample data 12345, ;
+		Width = 196
+		*< END OBJECT: ClassLib="sample.vcx" BaseClass="textbox" />
+
+	ADD OBJECT 'Sample_textbox6' AS sample_textbox WITH ;
+		Height = 23, ;
+		Left = 696, ;
+		Name = "Sample_textbox6", ;
+		TabIndex = 8, ;
+		Top = 60, ;
+		Value = Sample data 12345, ;
+		Width = 196
 		*< END OBJECT: ClassLib="sample.vcx" BaseClass="textbox" />
 
 	ADD OBJECT 'Text1' AS textbox WITH ;
 		Height = 23, ;
 		Left = 96, ;
 		Name = "Text1", ;
+		TabIndex = 3, ;
 		Top = 96, ;
-		Width = 232
+		Width = 196
+		*< END OBJECT: BaseClass="textbox" />
+
+	ADD OBJECT 'Text2' AS textbox WITH ;
+		Height = 23, ;
+		Left = 396, ;
+		Name = "Text2", ;
+		TabIndex = 6, ;
+		Top = 96, ;
+		Value = Sample data 12345, ;
+		Width = 196
+		*< END OBJECT: BaseClass="textbox" />
+
+	ADD OBJECT 'Text3' AS textbox WITH ;
+		Height = 23, ;
+		Left = 696, ;
+		Name = "Text3", ;
+		TabIndex = 9, ;
+		Top = 96, ;
+		Value = Sample data 12345, ;
+		Width = 196
 		*< END OBJECT: BaseClass="textbox" />
 	
 	PROCEDURE Destroy
@@ -121,7 +266,7 @@ DEFINE CLASS sample AS form
 		        .NewObject("oCtrl", "sample_textbox_paste", "sample.vcx")
 		        .CurrentControl = "oCtrl"
 		        .oCtrl.Visible = .T.
-		        .Width = 200
+		        .Width = 300
 		    ENDWITH
 		
 		    WITH .Columns[2]
@@ -130,19 +275,24 @@ DEFINE CLASS sample AS form
 		        .NewObject("oCtrl", "sample_textbox_nopaste", "sample.vcx")
 		        .CurrentControl = "oCtrl"
 		        .oCtrl.Visible = .T.
-		        .Width = 200
+		        .Width = 300
 		    ENDWITH
 		
 		    WITH .Columns[3]
 		        .ControlSource = "curTempGrid.f3"
 		        .Header1.Caption = "Default"
-		        .Width = 200
+		        .Width = 300
 		    ENDWITH
 		
 		ENDWITH
 	ENDPROC
 
 	PROCEDURE Load
+		* DO sample.mpr && custom menu
+		
+		SET DELETED ON
+		DO ..\Release\pastewatch.app WITH .T.
+		
 		CLOSE TABLES ALL
 		CREATE CURSOR curTempGrid (f1 c(200), f2 c(200), f3 c(200))
 		SELECT curTempGrid
@@ -154,15 +304,62 @@ DEFINE CLASS sample AS form
 		
 	ENDPROC
 
+	PROCEDURE Unload
+		DO ..\Release\pastewatch.app WITH .F.
+		
+	ENDPROC
+
 	PROCEDURE Sample_textbox1.onpaste
-		MESSAGEBOX(This.Name + ".OnPaste: " + LEFT(_CLIPTEXT,200))
+		LOCAL lnLines, laLines(1)
+		lnLines = ALINES(laLines, _CLIPTEXT,1+4, CHR(13))
+		DO CASE
+		CASE lnLines = 0
+		    MESSAGEBOX(This.Name + ".OnPaste: No Text in the clipboard")
+		CASE lnLines = 1 
+		    MESSAGEBOX(This.Name + ".OnPaste: the clipboard has 1 line of text " + CHR(13) + "[" + LEFT(_CLIPTEXT,200) + "]" + CHR(13) + "Try to paste multiline text")
+		OTHERWISE
+		    IF MESSAGEBOX(This.Name + ".OnPaste: the clipboard contains " + TRANSFORM(lnLines) + " lines of text. Do you want to split them and paste in the grid?",4+32) = 6
+		        LOCAL i
+		        SELECT curTempGrid
+		        DELETE ALL
+		        FOR i = 1 TO lnLines    
+		            APPEND BLANK 
+		            replace f1 WITH laLines[i]
+		        ENDFOR
+		        SELECT curTempGrid
+		        GO TOP
+		        Thisform.Refresh()
+		        RETURN .F.
+		    ENDIF
+		ENDCASE
 		
 	ENDPROC
 
 	PROCEDURE Sample_textbox2.onpaste
-		MESSAGEBOX(This.Name + ".OnPaste NOPASTE: " + LEFT(_CLIPTEXT,200))
-		*!*    This.SelText = _CLIPTEXT
+		MESSAGEBOX(This.Name + ".OnPaste PASTE IS NOT ALLOWED")
 		RETURN .F. &&suppress default paste
+		
+	ENDPROC
+
+	PROCEDURE Sample_textbox3.oncopy
+		MESSAGEBOX(This.Name + ".OnCopy: " + LEFT(This.SelText,200))
+		
+	ENDPROC
+
+	PROCEDURE Sample_textbox4.oncopy
+		MESSAGEBOX(This.Name + ".OnCopy COPY IS NOT ALLOWED")
+		RETURN .F. &&suppress default copy
+		
+	ENDPROC
+
+	PROCEDURE Sample_textbox5.oncut
+		MESSAGEBOX(This.Name + ".OnCut: " + LEFT(This.SelText,200))
+		
+	ENDPROC
+
+	PROCEDURE Sample_textbox6.oncut
+		MESSAGEBOX(This.Name + ".OnCut CUT IS NOT ALLOWED")
+		RETURN .F. &&suppress default cut
 		
 	ENDPROC
 
