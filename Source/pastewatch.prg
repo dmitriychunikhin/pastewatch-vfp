@@ -145,6 +145,7 @@ DEFINE CLASS PasteWatch as Session
             
             IF m.llOnKeyLabel AND PEMSTATUS(m.loControl, "SelText",6) AND NOT EMPTY(_CLIPTEXT)
                 m.loControl.SelText = _CLIPTEXT
+                m.loControl.InteractiveChange()
             ENDIF
 
         CASE m.lnMsg = WM_USER_COPY
@@ -168,6 +169,7 @@ DEFINE CLASS PasteWatch as Session
             IF m.llOnKeyLabel AND PEMSTATUS(m.loControl, "SelText",6) 
                 _CLIPTEXT = m.loControl.SelText
                 m.loControl.SelText = ""
+                m.loControl.InteractiveChange()
             ENDIF
         ENDCASE
     ENDPROC

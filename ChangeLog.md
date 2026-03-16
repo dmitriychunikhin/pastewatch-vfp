@@ -1,3 +1,6 @@
+0.2
+  - Invoking InteractiveChange event on paste and cut 
+
 0.1
   - Added handling of copy/cut events
 
