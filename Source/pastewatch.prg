@@ -145,6 +145,7 @@ DEFINE CLASS PasteWatch as Session
             
             IF m.llOnKeyLabel AND PEMSTATUS(m.loControl, "SelText",6) AND NOT EMPTY(_CLIPTEXT)
                 m.loControl.SelText = _CLIPTEXT
+                KEYBOARD '{END}' PLAIN
                 m.loControl.InteractiveChange()
             ENDIF
 

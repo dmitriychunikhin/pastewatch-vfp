@@ -1,3 +1,6 @@
+0.3
+  - Moving insertion point to the end of a pasted text
+
 0.2
   - Invoking InteractiveChange event on paste and cut 
 
