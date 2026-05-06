@@ -71,38 +71,44 @@ DEFINE CLASS PasteWatch as Session
     PROCEDURE On_WM_USER_PASTE
         LPARAMETERS hWnd, nMsg, wParam, lParam
         
-        RETURN IIF(This.OnCopyPaste(WM_USER_PASTE), 0, 1)
+        RETURN IIF(This.OnCopyPaste(WM_USER_PASTE), 1, 0)
     ENDPROC
 
     PROCEDURE On_KEYLABEL_PASTE
-        This.OnCopyPaste(WM_USER_PASTE, .T.)
+        IF This.OnCopyPaste(WM_USER_PASTE, .T.) = .F.
+            KEYBOARD '{CTRL+V}' CLEAR PLAIN
+        ENDIF                   
     ENDPROC
 
     PROCEDURE On_WM_USER_COPY
         LPARAMETERS hWnd, nMsg, wParam, lParam
         
-        RETURN IIF(This.OnCopyPaste(WM_USER_COPY), 0, 1)
+        RETURN IIF(This.OnCopyPaste(WM_USER_COPY), 1, 0)
     ENDPROC
 
     PROCEDURE On_KEYLABEL_COPY
-        This.OnCopyPaste(WM_USER_COPY, .T.)
+        IF This.OnCopyPaste(WM_USER_COPY, .T.) = .F.
+            KEYBOARD '{CTRL+C}' CLEAR PLAIN
+        ENDIF
     ENDPROC
 
     PROCEDURE On_WM_USER_CUT
         LPARAMETERS hWnd, nMsg, wParam, lParam
         
-        RETURN IIF(This.OnCopyPaste(WM_USER_CUT), 0, 1)
+        RETURN IIF(This.OnCopyPaste(WM_USER_CUT), 1, 0)
     ENDPROC
 
     PROCEDURE On_KEYLABEL_CUT
-        This.OnCopyPaste(WM_USER_CUT, .T.)
+        IF This.OnCopyPaste(WM_USER_CUT, .T.) = .F.
+            KEYBOARD '{CTRL+X}' CLEAR PLAIN
+        ENDIF            
     ENDPROC
 
     HIDDEN PROCEDURE OnCopyPaste
         LPARAMETERS lnMsg, llOnKeyLabel
         
         IF TYPE("_VFP.ActiveForm.ActiveControl") != "O"
-            RETURN
+            RETURN .F.
         ENDIF
         
         LOCAL loControl
@@ -139,40 +145,56 @@ DEFINE CLASS PasteWatch as Session
         CASE m.lnMsg = WM_USER_PASTE
             IF PEMSTATUS(m.loControl, "OnPaste", 5) = .T.
                 IF m.loControl.OnPaste() = .F.
-                    RETURN .F.
+                    RETURN
                 ENDIF
             ENDIF
             
-            IF m.llOnKeyLabel AND PEMSTATUS(m.loControl, "SelText",6) AND NOT EMPTY(_CLIPTEXT)
-                m.loControl.SelText = _CLIPTEXT
-                KEYBOARD '{END}' PLAIN
-                m.loControl.InteractiveChange()
+            IF m.llOnKeyLabel 
+                IF PEMSTATUS(m.loControl, "SelText",6) 
+                    IF NOT EMPTY(_CLIPTEXT)
+                        m.loControl.SelText = _CLIPTEXT
+                        KEYBOARD '{END}' PLAIN
+                        m.loControl.InteractiveChange()
+                    ENDIF
+                    RETURN
+                ENDIF
             ENDIF
+            RETURN .F.
 
         CASE m.lnMsg = WM_USER_COPY
             IF PEMSTATUS(m.loControl, "OnCopy", 5) = .T.
                 IF m.loControl.OnCopy() = .F.
-                    RETURN .F.
+                    RETURN
                 ENDIF
             ENDIF
             
-            IF m.llOnKeyLabel AND PEMSTATUS(m.loControl, "SelText",6) 
-                _CLIPTEXT = m.loControl.SelText
-            ENDIF
+            IF m.llOnKeyLabel 
+                IF PEMSTATUS(m.loControl, "SelText",6) 
+                    _CLIPTEXT = m.loControl.SelText
+                    RETURN
+                ENDIF                
+            ENDIF            
+            RETURN .F.
             
         CASE m.lnMsg = WM_USER_CUT
             IF PEMSTATUS(m.loControl, "OnCut", 5) = .T.
                 IF m.loControl.OnCut() = .F.
-                    RETURN .F.
+                    RETURN
                 ENDIF
             ENDIF
             
-            IF m.llOnKeyLabel AND PEMSTATUS(m.loControl, "SelText",6) 
-                _CLIPTEXT = m.loControl.SelText
-                m.loControl.SelText = ""
-                m.loControl.InteractiveChange()
+            IF m.llOnKeyLabel
+                IF PEMSTATUS(m.loControl, "SelText",6) 
+                    _CLIPTEXT = m.loControl.SelText
+                    m.loControl.SelText = ""
+                    m.loControl.InteractiveChange()
+                    RETURN
+                ENDIF
             ENDIF
+            RETURN .F.
+                        
         ENDCASE
+        RETURN .F.
     ENDPROC
     
 ENDDEFINE

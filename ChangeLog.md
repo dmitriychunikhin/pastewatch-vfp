@@ -1,3 +1,6 @@
+0.4
+ - Force default copy/cut/paste behaviour if event wasn't handled by pastewatch
+
 0.3
   - Moving insertion point to the end of a pasted text
 
