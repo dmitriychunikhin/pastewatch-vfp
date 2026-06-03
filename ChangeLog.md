@@ -1,3 +1,6 @@
+0.5
+ - Fix error on ComboBox copy and paste
+
 0.4
  - Force default copy/cut/paste behaviour if event wasn't handled by pastewatch
 

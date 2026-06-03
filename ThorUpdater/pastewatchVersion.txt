@@ -3,8 +3,8 @@ lparameters toUpdateObject
 * Set the properties of the passed updater object.
 
 with toUpdateObject
-	.VersionNumber    = '0.4 - 20260506'
-	.AvailableVersion = 'pastewatch-0.4-update-20260506'
+	.VersionNumber    = '0.5 - 20260603'
+	.AvailableVersion = 'pastewatch-0.5-update-20260603'
 	.Notes            = GetNotes()
 *	.RegisterWithThor = GetRegisterWithThor()
 endwith

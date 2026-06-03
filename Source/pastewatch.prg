@@ -153,8 +153,10 @@ DEFINE CLASS PasteWatch as Session
                 IF PEMSTATUS(m.loControl, "SelText",6) 
                     IF NOT EMPTY(_CLIPTEXT)
                         m.loControl.SelText = _CLIPTEXT
-                        KEYBOARD '{END}' PLAIN
-                        m.loControl.InteractiveChange()
+                        IF INLIST(VARTYPE(m.loControl.SelText), "C", "M")
+                            KEYBOARD '{END}' PLAIN
+                            m.loControl.InteractiveChange()
+                        ENDIF
                     ENDIF
                     RETURN
                 ENDIF
@@ -169,7 +171,7 @@ DEFINE CLASS PasteWatch as Session
             ENDIF
             
             IF m.llOnKeyLabel 
-                IF PEMSTATUS(m.loControl, "SelText",6) 
+                IF PEMSTATUS(m.loControl, "SelText",6) AND INLIST(VARTYPE(m.loControl.SelText), "C", "M")
                     _CLIPTEXT = m.loControl.SelText
                     RETURN
                 ENDIF                
@@ -184,7 +186,7 @@ DEFINE CLASS PasteWatch as Session
             ENDIF
             
             IF m.llOnKeyLabel
-                IF PEMSTATUS(m.loControl, "SelText",6) 
+                IF PEMSTATUS(m.loControl, "SelText",6) AND INLIST(VARTYPE(m.loControl.SelText), "C", "M") 
                     _CLIPTEXT = m.loControl.SelText
                     m.loControl.SelText = ""
                     m.loControl.InteractiveChange()
